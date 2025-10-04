@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Form</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <form id="loginForm">
+      <h1>Login Form</h1>
+      <input type="text" id="username" placeholder="Username" required>
+      <br>
+      <input type="password" id="password" placeholder="Password" required>
+      <br>
+      <button type="submit">Login</button>
+    </form>
+
+    <h1 id="success" class="success"></h1>
+    <h1 id="error" class="error"></h1>
+  </div>
+
+  <script>
+    const form = document.getElementById("loginForm");
+    const successMsg = document.getElementById("success");
+    const errorMsg = document.getElementById("error");
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const user = document.getElementById("username").value;
+      const pass = document.getElementById("password").value;
+
+      if(user === "Subh" && pass === "1234"){
+        successMsg.innerText = `Welcome ${user} with pass ${pass}`;
+        errorMsg.innerText = "";
+      } else {
+        errorMsg.innerText = `Error User ${user} not found`;
+        successMsg.innerText = "";
+      }
+    });
+  </script>
+</body>
+</html>
